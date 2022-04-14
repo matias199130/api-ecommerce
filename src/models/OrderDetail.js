@@ -4,7 +4,7 @@ const { DataTypes, UUIDV4 } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('orderDetail', {
-    id:{
+    idOrder:{
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
