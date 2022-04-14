@@ -41,6 +41,7 @@ const { Product, Category, OrderDetail, User, Reviews } = sequelize.models;
 
 // Aca vendrian las relaciones
 
+
 //Product.hasMany(Reviews);
 //User.belongsToMany(Product, {through: Reviews})
 //Product.belongsToMany(User, {through: Reviews})
@@ -50,7 +51,6 @@ const { Product, Category, OrderDetail, User, Reviews } = sequelize.models;
 
 // User.hasMany(OrderDetail)
 // OrderDetail.belongsToMany(User)
-
 
 module.exports = {
   
