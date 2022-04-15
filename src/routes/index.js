@@ -3,13 +3,14 @@ const router = express.Router();
 
 router.use(express.json());
 
-
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const categories = require('./categories.js');
 
+const categoriesRoutes = require('./categories.js')
 
-router.use('/categories', categories);
+// Configurar los routers
+// Ejemplo: router.use('/auth', authRouter);
+router.use('/categories', categoriesRoutes)
 
 
 
