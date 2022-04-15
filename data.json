@@ -1,0 +1,102 @@
+{
+    "producto":[
+        {
+            "name": "Gabinete",
+            "price": 5000,
+            "image": "https://mla-s1-p.mlstatic.com/668833-MLA44092161835_112020-F.jpg",
+            "description":"Gabinete Game, de color negro, un tamaño de 190 x 430 x 400 mm (ancho x alto x profundidad)",
+            "stock":20,
+            "brand":"Razer",
+            "categories":"Gabinete"
+        },
+        {
+            "name": "Monitor Samsung Odyssey C24RG5 24 pulgadas ",
+            "price": 43000,
+            "image": "https://images.samsung.com/is/image/samsung/ar-c24rg5-lc24rg50fqlxzb-frontblack-171741155?$684_547_PNG$",
+            "description":"Color negro, ideal para Gamer. Resolucion 1,920 x 1,080",
+            "stock":5,
+            "brand":"Samsung",
+            "categories":"monitor"
+        },
+        {
+            "name": "Monitor Philips V 193V5LHSB2  ",
+            "price": 21999,
+            "image": "https://images.philips.com/is/image/PhilipsConsumer/275E1S_00-IMS-es_ES?$jpglarge$&wid=1250",
+            "description":"Monitor de color negro, LCD 18.5 pulgadas",
+            "stock": 10,
+            "brand":"Philips",
+            "categories":"monitor"
+        },
+        {
+            "name": "Monitor Asus Gaming VG27WQ1B",
+            "price": 81000,
+            "image": "https://http2.mlstatic.com/D_NQ_NP_2X_969345-MLA48810611726_012022-F.webp",
+            "description":"Monitor gamer curvo de color negro",
+            "stock":3,
+            "brand":"Asus", 
+            "categories":"monitor"
+        },
+        {
+            "name": "Teclado",
+            "price": 12000,
+            "image": "https://assets2.razerzone.com/images/pnx.assets/b741a04759a128fc7431f83e3ff9472b/razer-blackwidow-v3-mini-hyperspeed_ogimage-1200x630.jpg",
+            "description":"Teclado mecánico, color negro",
+            "stock":25,
+            "brand":"Razer",
+            "categories": "Teclado"
+        },
+        {
+            "name": "Teclado",
+            "price": 9000,
+            "image": "https://http2.mlstatic.com/D_NQ_NP_975008-MLA46503943203_062021-O.webp",
+            "description":"Teclado gamer bluetooth Redragon Draconic K530 QWERTY Outemu Brown inglés US color blanco con luz RGB",
+            "stock":30,
+            "brand":"Red Dragon",
+            "categories": "Teclado"
+        },
+        {
+            "name": "Teclado",
+            "price": 15000,
+            "image": "https://http2.mlstatic.com/D_NQ_NP_762331-MLA47676219766_092021-O.jpg",
+            "description":"Teclado bluetooth Logitech K480 QWERTY inglés US color rosa",
+            "stock":15,
+            "brand":"Logitech",
+            "categories": "Teclado"
+        },
+        {
+            "name": "Mouse",
+            "price": 6490,
+            "image": "https://http2.mlstatic.com/D_Q_NP_966913-MLA32149634914_092019-R.webp",
+            "description":"Mouse de juego. Posee rueda de desplazamiento. Cuenta con 11 botones para mayor control. Con sensor óptico",
+            "stock":27,
+            "brand":"Logitech G Series Hero",
+	    "categories" : "mouse"	
+        },
+	{
+	 "name": "Mouse inalámbrico",
+            "price": 1000,
+            "image": "https://http2.mlstatic.com/D_NQ_NP_891822-MLA32146214292_092019-V.webp",
+            "description":"Contiene USB inalámbrico. Orientación de la mano ambidiestro. Resolución de 1000 dpi. Creado para llevar a todas partes",
+            "stock":35,
+            "brand":"Logitech M170",
+            "categories" : "mouse"
+        },  
+	{
+	        "name": "Mouse vertical",
+            "price": 4445,
+            "image": "https://http2.mlstatic.com/D_Q_NP_944560-MLA43623112666_092020-R.webp",
+            "description":"Utiliza cable. Posee rueda de desplazamiento. Con luces para mejorar la experiencia de uso.",
+            "stock":25,
+            "brand":"Trust Rexx GXT 144",
+	        "categories" : "mouse"
+        }
+    ]
+}
+
+
+
+
+
+
+
+
