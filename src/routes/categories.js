@@ -8,7 +8,7 @@ const router = Router();
 
 router.post('/', postCategory)
 router.put('/edit/:idCategory', putCategory)
-router.get('/', getCategories)
+//router.get('/', getCategories)
 
 
 module.exports = router
