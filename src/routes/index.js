@@ -14,11 +14,14 @@ const productController = require ('../controllers/products.js')
 //const router = Router();
 
 
+const cartRoutes = require('./cart.js')
+
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 router.use('/categories', categoriesRoutes)
 router.use('/products', productRoutes)
+router.use('/cart', cartRoutes); 
 
 
 
