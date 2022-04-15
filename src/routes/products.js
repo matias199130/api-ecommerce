@@ -3,7 +3,7 @@ const {Router} = require ('express');
 const router = Router();
 const {Op} = require ('sequelize');
 
-router.get("/product", async (req, res)=>{
+router.get("/", async (req, res)=>{
 
     const {name} = req.query;
     try {
@@ -34,12 +34,12 @@ router.get("/product", async (req, res)=>{
 });
 
 router.get("/:id", async (req, res)=>{
-    
+    console.log('daleeeeeeeeeeeeMabel')
     const {id} = req.params;
     try {
         const productId = await Product.findOne({
             where:{
-                id: id, // idProduct??
+                idProduct: id,
             },
             include:{
                 model: Category,
