@@ -8,13 +8,13 @@ router.use(express.json());
 
 const categoriesRoutes = require('./categories.js')
 
-const productRoutes = require ('./products.js')
+const productRoutes = require ('./Products/products.js')
 const cartRoutes = require ('./cart.js')
-const productController = require ('../controllers/products.js')
+//const productController = require ('../controllers/products.js')
 //const router = Router();
 
 
-const cartRoutes = require('./cart.js')
+
 
 
 // Configurar los routers
