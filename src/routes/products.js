@@ -3,8 +3,9 @@ const {Router} = require ('express');
 const router = Router();
 const {Op} = require ('sequelize');
 
-router.get("/", async (req, res)=>{
 
+router.get("/", async (req, res)=>{
+    
     const {name} = req.query;
     try {
         if(name){
