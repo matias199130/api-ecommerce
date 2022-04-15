@@ -10,11 +10,14 @@ const categoriesRoutes = require('./categories.js')
 
 const productRoutes = require('./products.js')
 
+const cartRoutes = require('./cart.js')
+
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 router.use('/categories', categoriesRoutes)
 router.use('/products', productRoutes)
+router.use('/cart', cartRoutes); 
 
 
 
