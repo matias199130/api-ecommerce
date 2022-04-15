@@ -8,11 +8,11 @@ router.delete('/:id', async (req, res) => {
     res.send();
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/cart/:id', async (req, res) => {
     const cartId = req.params.id;
-    
     const newCount = req.body.count;
-    const existingCart = await Cart.findByPk(cartId)
+    const existingCart = await Cart.findOneById(cartId)
+
     if (existingCart){
         existingCart.count = newCount;
         await existingCart.save();
@@ -22,5 +22,6 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-module.exports = router
+
+module.exports = router;
 
