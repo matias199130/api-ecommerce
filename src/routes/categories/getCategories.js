@@ -1,16 +1,16 @@
-const { Category } = require('../../db.js');
+//const {Category} = require('../../db.js')
 
-const getCategories = async (req, res, next) => {
-	try {
-		const allCategories = await Category.findAll();
 
-        allCategories.length ? res.status(200).send(allCategories) :
-			res.status(401).send('error en el servidor, notifique al administrador');
-	} catch (error) {
-		console.log(error);
-	}
-};
+//const getCategories = async(req, res, next) => {
+    //try{
+        //const allCategories = await Category.findAll()
+        //res.status(200).json(allCategories)
+       
+    //}catch(err){
+       // next(err)
+    ////}
+//}
 
-module.exports = {
-	getCategories
-};
+//module.exports ={
+    //getCategories
+//}
