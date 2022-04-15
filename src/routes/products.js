@@ -55,4 +55,49 @@ router.get("/:id", async (req, res)=>{
     }
 });
 
+router.post('/', async (req, res)=>{
+const { name, 
+        price, 
+        image, 
+        description, 
+        stock,
+        brand } = req.body;
+
+const newProduct = await Product.create({ name, 
+   price, 
+   image, 
+   description, 
+   stock,
+   brand });
+
+return res.status(200).send(newProduct);
+});
+
+router.put('/', async (req, res)=>{  
+    
+    const {
+        idProduct,
+        name,
+        price,
+        image,
+        description,
+        stock,
+        brand
+    } = req.body;
+    console.log(idProduct, name, price, image, description, stock, brand)
+
+    try {
+        if(idProduct && name && price && image && description && stock && brand){
+            Product.update({name, price, image, description, stock, brand},
+                {where: {idProduct}})  
+        return res.status(200).send('Update complete')                      
+        } else{
+            res.status(404).send('Missing values')
+        }
+    } catch (error) {
+        console.log(error)        
+    }
+});
+
+
 module.exports = router;

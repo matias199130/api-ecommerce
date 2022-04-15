@@ -1,8 +1,10 @@
 const { Router } = require('express');
 
 const { postCategory } = require('./categories/postCategories.js')
-//const { putCategory } = require('./categories/putCategories.js')
-const {getCategories} = require('../controllers/categories');
+
+const { putCategory } = require('./categories/putCategories.js')
+//const {getCategories} = require('../controllers/categories');
+
 
 const router = Router();
 
