@@ -3,12 +3,15 @@ const Router = require ('express');
 const router = Router();
 
 const getCurrentCart = async () => {
-    const allCart = await Cart.findAll();
+    const allCart = await Cart.findAll({
+        include:Product,
+        order: [['id', 'ASC']]
+    });
     return allCart.map(c => {
         return {
             id: c.id,
             count: c.count,
-            idProduct: c.productIdProduct
+            product: c.product
         }
     });
 }
@@ -21,8 +24,14 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     const cartId = req.params.id;
-    const newCount = req.body.count;
-    await Cart.update({count: newCount},{ where: { id: cartId }})
+    const rawCount = req.body.count;
+    const newCount = !rawCount?0 : rawCount < 1? 0 :rawCount
+
+    if (newCount == 0)
+        await Cart.destroy({ where: { id: cartId } });
+    else
+        await Cart.update({count: newCount},{ where: { id: cartId }})
+    
     res.send(await getCurrentCart());
 });
 
@@ -32,7 +41,16 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const {count, idProduct} = req.body;
-    const newCart = await Cart.create({count: count, productIdProduct: idProduct});
+
+    const existingItem = await Cart.findOne({where: { productIdProduct: idProduct}});
+
+    if (existingItem!=null){
+        existingItem.count++;
+        await existingItem.save();
+    }else{
+        await Cart.create({count: count, productIdProduct: idProduct});
+    }
+
     res.send(await getCurrentCart());
 })
 
