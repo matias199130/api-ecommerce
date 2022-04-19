@@ -1,15 +1,48 @@
 require('dotenv').config();
-const { Sequelize } = require('sequelize');
+const { Sequelize , DataTypes } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const {
-  DB_USER, DB_PASSWORD, DB_HOST,
-} = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+// ESTO INDICA DEPLOYAR
+let sequelize =
+  process.env.NODE_ENV === "production"
+    ? new Sequelize({
+        database: DB_NAME,
+        dialect: "postgres",
+        host: DB_HOST,
+        port: 5432,
+        username: DB_USER,
+        password: DB_PASSWORD,
+        poot: {
+          max: 3,
+          min: 1,
+          idle: 10000,
+        },
+        dialectOptions: {
+          ssl: {
+            require: true,
+            // Ref.: http//github.com/brianc/node-postgres/inssues/2009
+            rejectUnauthorized: false,
+          },
+          keepAlive: true,
+        },
+        ssl: true,
+      })
+    : new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ecommerce`, {
+        logging: false,
+        native: false,
+      });
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ecommerce`, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
+
+//const sequelize =
+  //new Sequelize(
+    //    `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ecommerce`,
+      //  { 
+        //  logging: false, 
+         // native: false 
+       // }
+      //);
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -27,24 +60,22 @@ modelDefiners.forEach(model => model(sequelize));
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
+// console.log("CAPSENTRIES",capsEntries)
+
+
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Product, Category } = sequelize.models;
+const { Product, Category, Cart } = sequelize.models;
 
 // Aca vendrian las relaciones
-Product.belongsToMany(Reviews);
 
-module.exports = {
+// Product.belongsToMany(Reviews);
+
+Product.belongsToMany(Category, {through: "category_product"});
+Cart.belongsTo(Product);
+
+module.exports = { 
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
-};
-
-// {
-//   cantidad: 2,
-//   idProductos: "esto nos lo pasan",
-//   IdVenta: "",
-//   subtotal: 2000,
-//   total: 2100,
-//   }
-
+}
