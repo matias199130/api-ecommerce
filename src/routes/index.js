@@ -21,7 +21,7 @@ const cartRoutes = require ('./cart.js')
 // Ejemplo: router.use('/auth', authRouter);
 router.use('/categories', categoriesRoutes)
 router.use('/products', productRoutes)
-router.use('/cart', cartRoutes); 
+router.use('/cart', cartRoutes);
 
 
 
