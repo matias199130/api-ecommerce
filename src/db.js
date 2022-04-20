@@ -73,6 +73,7 @@ const { Product, Category, Cart } = sequelize.models;
 // Product.belongsToMany(Reviews);
 
 Product.belongsToMany(Category, {through: "category_product"});
+//Category.belongsToMany(Product, {through: "category_product"});
 Cart.belongsTo(Product);
 
 module.exports = { 
