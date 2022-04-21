@@ -127,4 +127,18 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+const getCurrentProducts = async () =>{
+    const allProducts = await Product.findAll({
+        include: Category,
+    });
+    return allProducts;
+}
+
+router.delete('/:id', async (req, res) => {
+    const idProduct = req.params.id;
+    await Product.destroy({ where: { idProduct: idProduct} });
+    res.send(await getCurrentProducts());
+});
+  
+    
 module.exports = router;
