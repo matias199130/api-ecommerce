@@ -7,6 +7,9 @@ router.use(express.json());
 // Ejemplo: const authRouter = require('./auth.js');
 
 const categoriesRoutes = require('./categories.js')
+const getCategoryRoutes = require('./categories/getCategories');
+const getCategoryById = require('./categories/getCategories.js');
+const deleteCategory = require('./categories/deleteCategories.js')
 
 const productRoutes = require ('./Products/products.js')
 const cartRoutes = require ('./cart.js')

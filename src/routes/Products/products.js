@@ -137,7 +137,7 @@ const getCurrentProducts = async () =>{
 router.delete('/:id', async (req, res) => {
     const idProduct = req.params.id;
     await Product.destroy({ where: { idProduct: idProduct} });
-    res.status(200).send("Product was deleted successfully");
+    res.status(200).send("Borrado con éxito");
 });
   
     
