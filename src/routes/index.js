@@ -10,6 +10,7 @@ const categoriesRoutes = require('./categories.js');
 const productRoutes = require('./Products/products.js');
 const cartRoutes = require('./cart.js');
 const wishlistRoutes = require('./wishlist.js');
+const challengesRoutes = require('../../AuthIndex.js');
 //const productController = require ('../controllers/products.js')
 //const router = Router();
 
@@ -19,5 +20,7 @@ router.use('/categories', categoriesRoutes);
 router.use('/products', productRoutes);
 router.use('/cart', cartRoutes);
 router.use('/wishlist', wishlistRoutes);
+router.use('/challenges', challengesRoutes);
+
 
 module.exports = router;
