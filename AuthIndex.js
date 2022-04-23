@@ -4,12 +4,15 @@ var axios = require('axios');
 var oAuth = require('./middleware/oAuth.js');
 var app = express();
 const challengesAPIEndpoint = 'http://localhost:3001/challenges';
+const { requiresAuth } = require('express-openid-connect');
+
+
 
 
 app.use(oAuth);// esto no se esta EJECUTANDO
 console.log('Soy AuthIndexxxx', oAuth);
 
-app.get('/challenges', async (req, res) => {
+app.get('/challenges', requiresAuth(), async (req, res) => {
 	try {
 		const { access_token } = req.oauth;
 
