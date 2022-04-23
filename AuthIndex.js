@@ -9,7 +9,7 @@ const challengesAPIEndpoint = 'http://localhost:3001/challenges';
 app.use(oAuth);// esto no se esta EJECUTANDO
 console.log('Soy AuthIndexxxx', oAuth);
 
-app.get('/', async (req, res) => {
+app.get('/challenges', async (req, res) => {
 	try {
 		const { access_token } = req.oauth;
 

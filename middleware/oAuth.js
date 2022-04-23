@@ -3,7 +3,7 @@ var axios = require("axios");
 const tokenEndpoint = "https://agustingalvan02.us.auth0.com/oauth/token";
 
 oAuth = (req, res, next) => {// No estan llegando  req query???
-    console.log("SOY oAuth!!!!!!!!!")
+    console.log("SOY oAuth!!!!!!!!!??????")
     var code = req.query.code;
     
     if(!code) {
