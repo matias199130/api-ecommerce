@@ -12,11 +12,11 @@ module.exports = (sequelize) => {
 			},
 			isAdmin  : {
 				type      : DataTypes.BOOLEAN,
-				allowNull : false
+				defaultValue : false
 			},
 			fullName : {
 				type      : DataTypes.STRING,
-				allowNull : false
+				
 			},
 			email    : {
 				type      : DataTypes.TEXT,
@@ -25,15 +25,15 @@ module.exports = (sequelize) => {
 
 			password : {
 				type      : DataTypes.STRING,
-				allowNull : false
+				
 			},
 			address  : {
 				type      : DataTypes.TEXT,
-				allowNull : false
+				
 			},
 			cp       : {
 				type      : DataTypes.STRING,
-				allowNull : false
+				
 			}
 		},
 		{ timestamps: false, freezeTableName: true }
