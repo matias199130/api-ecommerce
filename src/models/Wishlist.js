@@ -6,19 +6,16 @@ module.exports = (sequelize) => {
 	sequelize.define(
 		'wishlist',
 		{
-			idProduct   : {
-				type         : DataTypes.UUID,
-				defaultValue : DataTypes.UUIDV4,
-				allowNull    : false,
-				primaryKey   : true
+			idProduct : {
+				type       : DataTypes.UUID,
+				allowNull  : false,
+				primaryKey : true
 			},
-			idUser  : {
-				type         : DataTypes.UUID,
-				defaultValue : DataTypes.UUIDV4,
-				allowNull    : false,
-				primaryKey   : true
-			},
-
+			idUser    : {
+				type       : DataTypes.UUID,
+				allowNull  : false,
+				primaryKey : true
+			}
 		},
 		{ timestamps: false, freezeTableName: true }
 	);
