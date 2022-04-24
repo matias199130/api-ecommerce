@@ -1,19 +1,23 @@
+const { Category, Product} = require('../../db.js');
 
-const { Category } = require('../../db.js');
-
-const getCategories = async (req, res, next) => {
-	try {
+async function getAllCategories(req, res) {
 		const allCategories = await Category.findAll();
-
-
         allCategories.length ? res.status(200).send(allCategories) :
 			res.status(401).send('error en el servidor, notifique al administrador');
-	} catch (error) {
-		console.log(error);
-	}
-};
+}
 
+async function getCategoryDetails(req, res){
+	const idCategory  = req.params.id;
+	 const oneCategory = await Category.findOne({
+		where: {
+		  idCategory: idCategory,		  
+		},
+	  });
+	  !idCategory
+		? res.status(404).send("Categoría no encontrada")
+		: res.status(200).send(oneCategory);
+}
 
 module.exports = {
-	getCategories
-};
+	getAllCategories, getCategoryDetails
+}
