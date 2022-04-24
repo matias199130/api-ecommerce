@@ -18,6 +18,27 @@ router.get('/', async (req, res)=>{
         order: [['idUser', 'ASC']]
     })
     res.send(await allUser)
-}) 
+});
+
+router.put('/', async (req, res)=>{
+    const {idUser, isAdmin, fullName, email, password, address, cp} = req.body;
+
+    if(!idUser){
+        res.status(400).send("Id is required")
+    }else {
+    
+    const updateUser = await User.update({
+        isAdmin,
+        fullName,
+        email,
+        password, 
+        address,
+        cp,
+    },
+    {where: {idUser: idUser}})
+    //console.log(updateUser)
+    res.send(updateUser)
+}
+});
 
 module.exports = router;
