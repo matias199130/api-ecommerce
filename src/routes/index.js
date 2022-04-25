@@ -13,7 +13,7 @@ const deleteCategory = require('./categories/deleteCategories.js')
 const putCategory = require('./categories/putCategories.js')
 const productRoutes = require ('./Products/products.js')
 const cartRoutes = require ('./cart.js')
-const wishlistRoutes = require('./wishlist.js');
+//const wishlistRoutes = require('./wishlist.js');
 const userRoutes = require('./users/user');
 
 //const productController = require ('../controllers/products.js')
@@ -24,7 +24,7 @@ const userRoutes = require('./users/user');
 router.use('/categories', categoriesRoutes);
 router.use('/products', productRoutes);
 router.use('/cart', cartRoutes);
-router.use('/wishlist', wishlistRoutes);
+//router.use('/wishlist', wishlistRoutes);
 router.use("/user", userRoutes);
 
 module.exports = router;
