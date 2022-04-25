@@ -16,6 +16,7 @@ module.exports = (sequelize) => {
 			},
 			fullName : {
 				type      : DataTypes.STRING,
+				defaultValue : "",
 				
 			},
 			email    : {
@@ -25,14 +26,17 @@ module.exports = (sequelize) => {
 
 			password : {
 				type      : DataTypes.STRING,
+				defaultValue : "",
 				
 			},
 			address  : {
 				type      : DataTypes.TEXT,
+				defaultValue : "",
 				
 			},
 			cp       : {
 				type      : DataTypes.STRING,
+				defaultValue : "",
 				
 			}
 		},
