@@ -5,12 +5,16 @@ const router = Router();
 router.post('/', async (req, res)=>{
     const { email } = req.body;
     console.log(email, "email")
-    const newUser = await User.findOrCreate({
-        where:{
-            email: email
-        }
-    });
-    res.send(await newUser)
+    if(email && email.length > 5 ) {
+        const newUser = await User.findOrCreate({
+            where:{
+                email: email
+            }
+        });
+        res.send(await newUser)
+    }else{
+        res.status(400).send('Email is required')
+    }
 });
 
 router.get('/', async (req, res)=>{
